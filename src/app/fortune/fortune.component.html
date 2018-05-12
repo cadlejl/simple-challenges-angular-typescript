@@ -1,0 +1,20 @@
+<h2 class="center">What Is Your Fortune</h2>
+<br />
+<br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-5 offset-lg-1">
+            <p class="question">How old are you? </p>
+            <input (keyup)="age=$event.target.value"><br /><br />
+            <p class="question">How much money is in your pocket? </p>
+            <input (keyup)="money=$event.target.value"><br /><br />
+            <button (click)="tellFortune()">Click Me To See Your Fortune</button><br />
+        </div>
+        <div class="col-lg-3">
+            <p class="fortune" *ngIf="fortune">"At {{ageReply}} years old, I would have expected you to have more than ${{moneyReply}} in your pocket!"</p>
+        </div>
+        <div class="col-lg-2">
+            <img src="../../assets/b37e25e9135f79e931dc246199580605.png">
+        </div>
+    </div>
+</div>

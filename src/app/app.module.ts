@@ -2,10 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { FortuneComponent } from './fortune/fortune.component';
+import { SimpleCalculatorComponent } from './simple-calculator/simple-calculator.component';
+import { ConditionalRadioButtonComponent } from './conditional-radio-button/conditional-radio-button.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FortuneComponent,
+    SimpleCalculatorComponent,
+    ConditionalRadioButtonComponent
   ],
   imports: [
     BrowserModule
