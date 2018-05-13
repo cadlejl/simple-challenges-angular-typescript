@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-11 offset-lg-1">
+            <h3 >Your Note Taking Preferrences</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 offset-lg-1">
+            <mat-radio-group id="radio-group" [value]="preference">
+                <mat-radio-button *ngFor="let device of devices" (value)="device">{{device}}</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="col-lg-3" id="selectedValue">
+            <h4>{{preference}}</h4>
+            <button type="button" class="btn btn-primary" (click)="select()">Select</button>
+        </div>
+        <div class="col-lg-3">
+            <img src="../../assets/${device}.png">
+        </div>
+    </div>
+</div>
