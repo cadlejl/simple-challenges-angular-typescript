@@ -1,23 +1,27 @@
 <div class="container-fluid app">
     <div class="row">
-        <div class="col-lg-7 offset-lg-1">
-            <div class="form-group">
-                <h2>Simple Calculator</h2><br /><br />
-
+        <div class="col-lg-10 offset-lg-1">
+            <h2>Simple Calculator</h2><br/><br/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-1">
                 <p>First Value </p>
                 <input 
                     type="text" 
                     class="form-control" 
                     (blur)="value_1 = $event.target.value" 
                     [(ngModel)]="firstValueField"><br /><br />
-
                 <p>Second Value </p>
                 <input 
                     type="text" 
                     class="form-control" 
                     (blur)="value_2 = $event.target.value"
                     [(ngModel)]="secondValueField"><br /><br />
-
+            </div>
+            <div class="col-lg-6">
+                <h4>Choose Your Operation</h4>
                 <button 
                     class="btn btn-primary clear" 
                     (click)="clear()">
@@ -31,8 +35,7 @@
                         class="btn btn-secondary operatorButton">
                         {{operator}}
                     </button>&nbsp;
-                </span>
-
+                </span><br/><br/><br /><br />
                 <span id="equal"> = </span>
                 <label id ="result">{{result}}</label><br /><br />
             </div>

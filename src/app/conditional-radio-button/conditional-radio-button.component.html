@@ -8,8 +8,8 @@
         <div class="col-lg-3 offset-1 auto">
             <mat-radio-group>
                 <mat-radio-button *ngFor="let device of devices" [value]="device" (click)="choice = device">{{device}}</mat-radio-button>
-            </mat-radio-group>
-            <button class="btn btn-primary" (click)="select(choice)">Choose</button>
+            </mat-radio-group><br/>
+            <button class="btn btn-primary choose" (click)="select(choice)">Choose</button>&nbsp;
         </div>
         <div class="col-lg-3 offset-lg-1 auto">
             <h3 *ngIf="display">{{preference}}</h3>

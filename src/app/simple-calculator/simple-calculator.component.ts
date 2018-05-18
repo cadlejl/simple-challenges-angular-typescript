@@ -4,9 +4,18 @@ import { Component, OnInit } from '@angular/core';
     selector: 'simple-calc',
     templateUrl: './simple-calculator.component.html',
     styles: [`
-        .operatorButton { width: 2.5rem; height: 2.5rem; }
-        #result { font-size: 2rem; background-color: blue; min-width: 2.5rem; text-align: center; margin: 0; }
-        #equal { font-size: 2rem; }
+        input {width: 80%;}
+        .operatorButton { 
+            width: 2.5rem; 
+            height: 2.5rem; }
+        #result { 
+            font-size: 2rem; 
+            background-color: blue; 
+            min-width: 2.5rem; 
+            text-align: center; 
+            margin: 0; 
+        }
+        #equal { font-size: 3rem; }
     `]
 })
 
@@ -20,13 +29,9 @@ export class SimpleCalculatorComponent {
     // Clear
     private firstValueField: string = "";
     private secondValueField: string = "";
-    clear() {
-        this.firstValueField = "";
-        this.secondValueField = "";
-        this.result = null;
-    }
 
     doMath(operator: string) {
+
         if(+this.value_1 && +this.value_2) {
             let v1 = +this.value_1;
             let v2 = +this.value_2;
@@ -41,6 +46,16 @@ export class SimpleCalculatorComponent {
 
             this.result = r;
 
-        } else { this.result = "Please enter two numeric values" }
+        } else { 
+            this.result = "Please enter two numeric values" 
+        }
+    }
+    
+    clear() {
+        this.firstValueField = "";
+        this.secondValueField = "";
+        this.value_1 = null;
+        this.value_2 = null;
+        this.result = null;
     }
 }
