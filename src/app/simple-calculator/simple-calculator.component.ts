@@ -23,22 +23,24 @@ export class SimpleCalculatorComponent {
     clear() {
         this.firstValueField = "";
         this.secondValueField = "";
-        this.result = "";
+        this.result = null;
     }
 
     doMath(operator: string) {
         if(+this.value_1 && +this.value_2) {
+            let v1 = +this.value_1;
+            let v2 = +this.value_2;
+            let r: number;
+
             switch(operator) {
-                case "+": this.add(); break;
-                case "-": this.subtract(); break;
-                case "*": this.multiply(); break;
-                case "/": this.divide(); break;
+                case "+": r = v1 + v2; break;
+                case "-": r = v1 - v2; break;
+                case "*": r = v1 * v2; break;
+                case "/": r = v1 / v2; break;
             }
+
+            this.result = r;
+
         } else { this.result = "Please enter two numeric values" }
     }
-
-    add() { this.result = +this.value_1 + +this.value_2; }
-    subtract() { this.result = +this.value_1 - +this.value_2; }
-    multiply() { this.result = +this.value_1 * +this.value_2; }
-    divide() { this.result = +this.value_1 / +this.value_2; }
 }
