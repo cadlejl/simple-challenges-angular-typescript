@@ -15,7 +15,10 @@
             <button (click)="tellFortune()">Click Me To See Your Fortune</button><br />
         </div>
         <div class="col-lg-3">
-            <p class="fortune" *ngIf="fortune">"At {{ageReply}} years old, I would have expected you to have more than ${{moneyReply}} in your pocket!"</p>
+            <span *ngIf="fortune">
+                <p>Fu Guang Han says:</p>
+                <p class="fortune">"At {{ageReply}} years old, I would have expected you to have more than ${{moneyReply}} in your pocket!"</p>
+            </span>
         </div>
         <div class="col-lg-2">
             <img src="../../assets/b37e25e9135f79e931dc246199580605.png">
