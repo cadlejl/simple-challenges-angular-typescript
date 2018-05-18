@@ -7,19 +7,31 @@
                 <p>First Value </p>
                 <input 
                     type="text" 
-                    class="input form-control" 
-                    (blur)="value_1=$event.target.value" 
-                    data-ng-model="value1"><br /><br />
+                    class="form-control" 
+                    (blur)="value_1 = $event.target.value" 
+                    [(ngModel)]="firstValueField"><br /><br />
 
                 <p>Second Value </p>
                 <input 
                     type="text" 
-                    class="input form-control" 
-                    (blur)="value_2=$event.target.value"><br /><br />
+                    class="form-control" 
+                    (blur)="value_2 = $event.target.value"
+                    [(ngModel)]="secondValueField"><br /><br />
 
-                <button class="btn btn-primary clear" data-ng-click="value1 = '' ">AC</button>&nbsp;
+                <button 
+                    class="btn btn-primary clear" 
+                    (click)="clear()">
+                    AC
+                </button>&nbsp;
 
-                <span *ngFor="let operator of operators" (click)="doMath(operator)"><button class="btn btn-secondary operatorButton">{{operator}}</button>&nbsp;</span>
+                <span 
+                    *ngFor="let operator of operators" 
+                    (click)="doMath(operator)">
+                    <button 
+                        class="btn btn-secondary operatorButton">
+                        {{operator}}
+                    </button>&nbsp;
+                </span>
 
                 <span id="equal"> = </span>
                 <label id ="result">{{result}}</label><br /><br />

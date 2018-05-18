@@ -5,14 +5,8 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './simple-calculator.component.html',
     styles: [`
         .operatorButton { width: 2.5rem; height: 2.5rem; }
-        input, p { display: inline; }
         #result { font-size: 2rem; background-color: blue; min-width: 2.5rem; text-align: center; margin: 0; }
         #equal { font-size: 2rem; }
-
-        .example-form-field {
-            width: 200px;
-            background-color: white;
-          }
     `]
 })
 
@@ -23,13 +17,13 @@ export class SimpleCalculatorComponent {
     private result: number | string;
     private operators = ["+","-","*","/"];
 
+    // Clear
+    private firstValueField: string = "";
+    private secondValueField: string = "";
     clear() {
-        //event.value1 = null;
-        // let inputValue = document.getElementsByTagName("input");
-        // console.log(inputValue);
-        // inputValue[0].value = null;
-        // this.value_1 = null;
-        // this.value_2 = null;
+        this.firstValueField = "";
+        this.secondValueField = "";
+        this.result = "";
     }
 
     doMath(operator: string) {
