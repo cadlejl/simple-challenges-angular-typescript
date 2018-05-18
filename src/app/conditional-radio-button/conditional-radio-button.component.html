@@ -1,21 +1,21 @@
-<div class="container-fluid">
+<div class="container-fluid app">
     <div class="row">
-        <div class="col-lg-11 offset-lg-1">
+        <div class="offset-lg-1">
             <h3 >Your Note Taking Preferrences</h3>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-3 offset-lg-1">
-            <mat-radio-group id="radio-group" [value]="preference">
-                <mat-radio-button *ngFor="let device of devices" (value)="device">{{device}}</mat-radio-button>
+        <div class="col-lg-3 offset-1 auto">
+            <mat-radio-group>
+                <mat-radio-button *ngFor="let device of devices" [value]="device" (click)="choice = device">{{device}}</mat-radio-button>
             </mat-radio-group>
+            <button class="btn btn-primary" (click)="select(choice)">Choose</button>
         </div>
-        <div class="col-lg-3" id="selectedValue">
-            <h4>{{preference}}</h4>
-            <button type="button" class="btn btn-primary" (click)="select()">Select</button>
+        <div class="col-lg-3 offset-lg-1 auto">
+            <h3 *ngIf="display">{{preference}}</h3>
         </div>
-        <div class="col-lg-3">
-            <img src="../../assets/${device}.png">
+        <div class="col-lg-3 image auto">
+            <img *ngIf="imgUrl" [src]="imgUrl">
         </div>
     </div>
-</div>
+</div><hr/>

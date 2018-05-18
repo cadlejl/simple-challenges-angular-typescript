@@ -4,15 +4,23 @@ import { Component, OnInit } from '@angular/core';
     selector: 'conditional-radio-button',
     templateUrl: 'conditional-radio-button.component.html',
     styles: [`
-        #radio-group {display: inline-flex; flex-direction: column; }
-        mat-radio-button { margin: 5px; }
-        #selectedValue { nargin: 15px 0; }
+        h3 {margin-bottom:40px}
+        .auto {margin-top: auto;
+            margin-bottom: auto;}
+        .mat-radio-group {
+            display:inline-flex;
+            flex-direction: column;
+        }
+        .btn {display:block;margin-top:25px;}
+        .image {height:300px;}
     `]
 })
 
-export class ConditionalRadioButtonComponent /*implements OnInit*/ {
+export class ConditionalRadioButtonComponent {
 
-    private preference = "Make a selection";
+    private preference = "Make a selection"; 
+    private display: boolean = false;
+    private imgUrl: string;
 
     private devices = [
         "pencil",
@@ -21,12 +29,15 @@ export class ConditionalRadioButtonComponent /*implements OnInit*/ {
         "tablet"
     ];
 
-    select() {
-        
-        
+    select(choice:string) {
+        let displayPreference = `You chose ${choice}`;
+
+        this.display = true;
+
+        if (choice) {
+            this.preference = displayPreference;
+            this.imgUrl = `../../assets/${choice}.png`;
+            //console.log(imgUrl);
+        }
     }
-
-
-    
-    // constructor() { }ngOnInit() { }
 }
