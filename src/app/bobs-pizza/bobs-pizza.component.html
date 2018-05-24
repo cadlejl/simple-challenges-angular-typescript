@@ -1,0 +1,97 @@
+<div class="container-fluid app">
+    <div class="col-lg-10 offset-lg-1 header">
+        <div class="text-center">
+            <img src="../../assets/PapaBob.png">
+            <h2 class="d-inline">Pappa Bob's Coal Fired Pizza and Software</h2>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-3 offset-lg-2">
+
+            <div class="menuRow">
+                <h5>Sizes:</h5>
+                <mat-radio-group 
+                    class="check-radio_Group" 
+                    [(ngModel)]="yourPizza">
+                    <mat-radio-button 
+                        class="check-radio"
+                        *ngFor="let pizza of pizzas" 
+                        [value]="pizza">
+                        {{ pizza.size }} - 
+                        {{ pizza.price 
+                            | currency:'USD':'symbol':'2.0-0' 
+                        }}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div class="menuRow">
+                <h5>Crust:</h5>
+                <mat-radio-group 
+                    class="check-radio_Group" 
+                    [(ngModel)]="yourCrust">
+                    <mat-radio-button 
+                        class="check-radio"
+                        *ngFor="let crust of crusts"
+                        [value]="crust">
+                        {{ crust.type }}  
+                        (+{{ +crust.price 
+                            | currency:'USD':'symbol':'1.0-0' 
+                        }})
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="menuRow">
+                <h5>Toppings:</h5>
+                <section 
+                    class="check-radio_Group">
+                    <mat-checkbox 
+                        class="check-radio"
+                        *ngFor="let topping of toppings"
+                        [value]="topping"
+                        (change)="chooseToppings($event)">
+                        {{ topping.type }} 
+                        (+{{ topping.price 
+                            | currency:'USD':'symbol':'1.2-2' 
+                        }})
+                    </mat-checkbox>
+                </section>
+            </div>
+        </div>
+
+        <div class="col-lg-3 menuRow">
+            <h4 class="d-inline">
+                Pappa Bob's 
+                <span class="text-danger">
+                    Special Deal
+                </span>
+            </h4>
+            <p>Save $2.00 when you add Peperoni Green Peppers and Anchovies, <strong>OR</strong> Pepperoni, Red Peppers and Onions to your pizza.</p>
+        </div>
+
+    </div>
+
+
+    <div class="col-lg-10 offset-lg-1">
+        <div class="yourOrder">
+            <h5>Your order:</h5>
+            <span *ngIf="yourPizza">{{ yourPizza.size }},&nbsp;</span>
+            <span *ngIf="yourCrust">{{ yourCrust.type }} pizza,&nbsp;</span>
+            <span *ngIf="yourToppings.length > 0">
+                <span>topped with </span>
+                <span 
+                    *ngFor="let topping of yourToppings">
+                    {{ topping }}
+                </span>
+            </span>
+        </div>
+    </div>
+
+
+</div>
+<hr />

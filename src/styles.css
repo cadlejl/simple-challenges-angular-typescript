@@ -10,5 +10,6 @@ body {
 .app { margin: 100px 0; }
 hr { background-color:white; }
 
-/* conditional-radio-button.component */
-.mat-radio-outer-circle { border-color: #ffffff; }
+/* ConditionalRadioButton, BobsPizza */
+.mat-radio-outer-circle, 
+.mat-checkbox-frame { border-color: #ffffff; }
