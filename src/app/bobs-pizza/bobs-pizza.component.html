@@ -74,7 +74,7 @@
                     Special Deal
                 </span>
             </h4>
-            <p>Save $2.00 when you add Peperoni Green Peppers and Anchovies, <strong>OR</strong> Pepperoni, Red Peppers and Onions to your pizza.</p>
+            <p>Save $2.00 when you add Peperoni, Green Peppers, and Anchovies, <strong>OR</strong> Pepperoni, Red Peppers, and Onions to your pizza.</p>
         </div>
 
     </div>
@@ -95,9 +95,40 @@
             </div>
         </div>
 
-        <div class="col-lg-3 offset-lg-1">
+        <div class="col-lg-3">
             <div class="orderTotal">
-                <h5>Subtotal: {{ subtotal | currency:'USD':'symbol':'1.2-2'}}</h5>
+
+                <mat-grid-list cols="10" rowHeight="2rem">
+
+                    <mat-grid-tile [colspan]="8">
+                        <h5>Subtotal:</h5>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile [colspan]="2">
+                        <h5>{{ subtotal | currency:'USD':'symbol':'1.2-2'}}</h5>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile [colspan]="8">
+                        <h5 
+                            [ngClass]="{special: special === 2}">
+                            Special Deal:
+                        </h5>
+                    </mat-grid-tile>
+                    
+                    <mat-grid-tile [colspan]="2">
+                        <h5>- {{ special | currency:'USD':'symbol':'1.2-2'}}</h5>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile [colspan]="8">
+                        <h5>Total:</h5>
+                    </mat-grid-tile>
+                    
+                    <mat-grid-tile [colspan]="2">
+                        <h5>{{ total | currency:'USD':'symbol':'1.2-2'}}</h5>
+                    </mat-grid-tile>
+                    
+                </mat-grid-list>
+
             </div>
         </div>
     </div>

@@ -8,28 +8,30 @@ import { Pizza, Crust, Topping } from './model';
         .header {
             margin-bottom: 50px;
         }
-        img {
-            width: 150px;
+        img { 
+            width: 150px; 
         }
-        .row {
-            margin: 40px 0;
+        .row { 
+            margin: 10px 0; 
         }
-        .menuRow {
-            margin: 30px 0;
+        .menuRow { 
+            margin: 30px 0; 
         }
         .check-radio_Group {
             display: inline-flex;
             flex-direction: column;
         }
-        .check-radio {
-            margin: 4px;
+        .check-radio { 
+            margin: 4px; 
         }
-        .orderTotal {
-            font-size: 1.5rem;
+        .orderTotal { 
+            font-size: 1.5rem; 
         }
-        p {
-            margin: 10px 0;
+        .special { 
+            color: #dc3545; 
         }
+        // mat-grid-tile { border: 2px solid white; }
+        p { margin: 10px 0; }
     `]
 })
 
@@ -43,55 +45,62 @@ export class BobsPizzaComponent {
     private sizePrice: number = 0;
     private crustPrice: number = 0;
     private subtotal: number = 0;
+    private total: number = 0;
+    private special: number = 0;
 
     sizeCrustChange($event:any) {
+        console.log($event);
         let val = $event.value;
         let price = val.price;
 
         if(val.size) this.sizePrice = price;
         else/*(val.type)*/ this.crustPrice = price;
 
-        this.setSubtotal(this.sizePrice, this.crustPrice, this.toppingTotal);
+        this.setTotal(this.sizePrice, this.crustPrice, this.toppingTotal);
     }
 
-    setSubtotal(sizePrice:number, crustPrice:number, toppingTotal:number) {
+    setTotal(sizePrice:number, crustPrice:number, toppingTotal:number) {
         this.subtotal = sizePrice + crustPrice + toppingTotal;
+        this.total = this.subtotal - this.special;
     }
 
     chooseToppings($event: any) {
         let val = $event.source.value;
         let topping: string = val.type;
         let toppingPrice: number = val.price;
+        let tList: string[] = this.toppingList;
         
         if($event.checked) {
             this.toppingTotal += toppingPrice;
-            this.toppingList.push(topping);
+            tList.push(topping);
         }
         else {
             this.toppingTotal -= toppingPrice;
-            this.toppingList.forEach(element => {
+            tList.forEach(element => {
                 if(element.includes(topping)) {
-                    let tIndex = this.toppingList.indexOf(element);
-                    this.toppingList.splice(tIndex,1);
+                    let tIndex = tList.indexOf(element);
+                    tList.splice(tIndex,1);
                 }
             });
         }
         
-        //this.checkSpecial(this.toppingList);
-        this.setSubtotal(this.sizePrice, this.crustPrice, this.toppingTotal);
-        this.configureToppingString(this.toppingList);
+        if(tList.length > 2) this.checkSpecial(tList);
+        else this.special = 0;
+
+        this.setTotal(this.sizePrice, this.crustPrice, this.toppingTotal);
+        this.configureToppingString(tList);
     }
     
     configureToppingString(tList:string[]) {
         let t:string[] = [];
-        let tListLast:number = this.toppingList.length - 1;
+        let tListLast:number = tList.length - 1;
 
-       if(tList.length === 1) t[0] = (' ' + tList[0] + '!!');
+       if(tList.length === 1) t[0] = (' ' + tList[0] + '!');
 
        if(tList.length === 2){
            t[0] = (' ' + tList[0] + ',');
-           t[1] = (' and ' + tList[1] + '!!');
-       }
+           t[1] = (' and ' + tList[1] + '!');
+       };
 
        if(tList.length > 2) {
            t[0] = (' ' + tList[0] + ',');
@@ -100,18 +109,22 @@ export class BobsPizzaComponent {
                t[i] = (' ' + tList[i] + ',');
            }
            
-           t[tListLast] = (' and ' + tList[tListLast] + '!!');
+           t[tListLast] = (' and ' + tList[tListLast] + '!');
        };
 
         this.yourToppings = t;
     }
 
-    // checkSpecial(toppingList: string[]) {
-    //     let t = toppingList;
-    //     let t2:string;
-    //     let tt = t.includes(t2);
-    //     if(
-    // }
+    checkSpecial(t: string[]) {
+        if((t.some(x => x === "pepperoni")
+        && t.some(x => x === "green peppers")
+        && t.some(x => x === "anchovies"))
+        || (t.some(x => x === "pepperoni")
+        && t.some(x => x === "red peppers")
+        && t.some(x => x === "onions"))) {
+            this.special = 2;
+        } else this.special = 0;
+    }
 
     pizzas: Pizza[] = [
         { size: 'Baby Bob Size (10")', price: 10 },

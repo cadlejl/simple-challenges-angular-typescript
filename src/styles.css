@@ -13,3 +13,7 @@ hr { background-color:white; }
 /* ConditionalRadioButton, BobsPizza */
 .mat-radio-outer-circle, 
 .mat-checkbox-frame { border-color: #ffffff; }
+
+.mat-grid-tile .mat-figure {
+    justify-content: flex-end !important;
+}
