@@ -14,11 +14,13 @@
                 <h5>Sizes:</h5>
                 <mat-radio-group 
                     class="check-radio_Group" 
-                    [(ngModel)]="yourPizza">
+                    [(ngModel)]="yourPizza"
+                    (change)="sizeCrustChange($event)">
                     <mat-radio-button 
                         class="check-radio"
                         *ngFor="let pizza of pizzas" 
-                        [value]="pizza">
+                        [value]="pizza"
+                        >
                         {{ pizza.size }} - 
                         {{ pizza.price 
                             | currency:'USD':'symbol':'2.0-0' 
@@ -31,7 +33,8 @@
                 <h5>Crust:</h5>
                 <mat-radio-group 
                     class="check-radio_Group" 
-                    [(ngModel)]="yourCrust">
+                    [(ngModel)]="yourCrust"
+                    (change)="sizeCrustChange($event)">
                     <mat-radio-button 
                         class="check-radio"
                         *ngFor="let crust of crusts"
@@ -76,19 +79,26 @@
 
     </div>
 
-
-    <div class="col-lg-10 offset-lg-1">
-        <div class="yourOrder">
-            <h5>Your order:</h5>
-            <span *ngIf="yourPizza">{{ yourPizza.size }},&nbsp;</span>
-            <span *ngIf="yourCrust">{{ yourCrust.type }} pizza,&nbsp;</span>
-            <span *ngIf="yourToppings.length > 0">
-                <span>topped with </span>
-                <span 
-                    *ngFor="let topping of yourToppings">
-                    {{ topping }}
+    <div class="row">
+        <div class="col-lg-6 offset-lg-1">
+            <div class="orderTotal">
+                <h5>Your order:</h5>
+                <span *ngIf="yourPizza">{{ yourPizza.size }},&nbsp;</span>
+                <span *ngIf="yourCrust">{{ yourCrust.type }} pizza,&nbsp;</span>
+                <span *ngIf="yourToppings.length > 0">
+                    <span>topped with </span>
+                    <span 
+                        *ngFor="let topping of yourToppings">
+                        {{ topping }}
+                    </span>
                 </span>
-            </span>
+            </div>
+        </div>
+
+        <div class="col-lg-3 offset-lg-1">
+            <div class="orderTotal">
+                <h5>Subtotal: {{ subtotal | currency:'USD':'symbol':'1.2-2'}}</h5>
+            </div>
         </div>
     </div>
 
