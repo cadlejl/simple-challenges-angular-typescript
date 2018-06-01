@@ -49,7 +49,6 @@ export class BobsPizzaComponent {
     private special: number = 0;
 
     sizeCrustChange($event:any) {
-        console.log($event);
         let val = $event.value;
         let price = val.price;
 
@@ -92,20 +91,19 @@ export class BobsPizzaComponent {
     }
     
     configureToppingString(tList:string[]) {
-        let t:string[] = [];
-        let tListLast:number = tList.length - 1;
+        let t: string[] = [];
+        let tListLast: number = tList.length - 1;
+        let tLength: number = tList.length;
 
-       if(tList.length === 1) t[0] = (' ' + tList[0] + '!');
+       if(tLength === 1) t[0] = (' ' + tList[0] + '!');
 
-       if(tList.length === 2){
+       if(tLength === 2){
            t[0] = (' ' + tList[0] + ',');
            t[1] = (' and ' + tList[1] + '!');
        };
 
-       if(tList.length > 2) {
-           t[0] = (' ' + tList[0] + ',');
-           
-           for(let i = 1; i < tListLast; i++) {
+       if(tLength > 2) {
+           for(let i = 0; i < tListLast; i++) {
                t[i] = (' ' + tList[i] + ',');
            }
            

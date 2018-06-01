@@ -19,6 +19,18 @@
                 <p>Fu Guang Han says:</p>
                 <p class="fortune">"At {{ageReply}} years old, I would have expected you to have more than ${{moneyReply}} in your pocket!"</p>
             </span>
+            <span *ngIf="yourAge">
+                <p>Fu Guang Han says:</p>
+                <p class="fortune">"I do not believe you are {{ageReply}} years old."</p>
+            </span>
+            <span *ngIf="yourMoney">
+                <p>Fu Guang Han says:</p>
+                <p class="fortune">"I do not believe you have ${{moneyReply}} in your pocket."</p>
+            </span>
+            <span *ngIf="!num">
+                <p>Fu Guang Han says:</p>
+                <p class="fortune">"I do not believe you are {{ageReply}} years old, or that you have ${{moneyReply}} in your pocket."</p>
+            </span>
         </div>
         <div class="col-lg-2">
             <img src="../../assets/b37e25e9135f79e931dc246199580605.png">
