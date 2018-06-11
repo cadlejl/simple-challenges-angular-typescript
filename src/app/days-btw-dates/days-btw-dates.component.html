@@ -1,0 +1,47 @@
+<div class="container-fluid app">
+
+    <div class="col-lg-12 header">
+        <div class="text-center">
+            <h2 class="d-inline">Calculate the Number of Days Between Two Dates</h2>
+            <br><br><br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 offset-lg-2">
+            <h5>Select any two dates:</h5><br>
+            <form autocomplete="off">
+                <mat-form-field>
+                    <input 
+                        matInput 
+                        [matDatepicker]="date1" 
+                        placeholder="Choose a date"
+                        (dateChange)="addEvent($event, 1)">
+                    <mat-datepicker-toggle 
+                        matSuffix [for]="date1">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker 
+                        #date1 
+                        startView="multi-year">
+                    </mat-datepicker>
+                </mat-form-field>
+                <br><br>
+                <mat-form-field>
+                        <input 
+                            matInput 
+                            [matDatepicker]="date2" 
+                            placeholder="Choose a date"
+                            (dateChange)="addEvent($event, 2)">
+                        <mat-datepicker-toggle 
+                            matSuffix [for]="date2">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #date2 startView="multi-year"></mat-datepicker>
+                    </mat-form-field>
+            </form>
+        </div>
+        <div class="col-lg-4">
+            <h5 class="label">{{ daysLabel }}</h5>
+        </div>
+    </div>
+
+</div><hr>

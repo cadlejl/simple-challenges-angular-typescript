@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'simple-calc',
@@ -32,7 +32,6 @@ export class SimpleCalculatorComponent {
     private operators = ["+","-","*","/"];
     private operatorLabel = "";
 
-
     // Clear
     private firstValueField: string = "";
     private secondValueField: string = "";
@@ -54,9 +53,7 @@ export class SimpleCalculatorComponent {
 
             this.result = r;
 
-        } else { 
-            this.result = "Please enter two numeric values" 
-        }
+        } else this.result = "Please enter two numeric values" 
     }
     
     clear() {

@@ -40,7 +40,7 @@ export class BobsPizzaComponent {
     private yourPizza: string;
     private yourCrust: string;
     private yourToppings: string[] = [];
-    private toppingList:string[]  = [];
+    private toppingList: string[]  = [];
     private toppingTotal: number = 0;
     private sizePrice: number = 0;
     private crustPrice: number = 0;
@@ -92,8 +92,8 @@ export class BobsPizzaComponent {
     
     configureToppingString(tList:string[]) {
         let t: string[] = [];
-        let tListLast: number = tList.length - 1;
         let tLength: number = tList.length;
+        let tListLast: number = tLength - 1;
 
        if(tLength === 1) t[0] = (' ' + tList[0] + '!');
 

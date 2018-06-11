@@ -14,6 +14,17 @@ hr { background-color:white; }
 .mat-radio-outer-circle, 
 .mat-checkbox-frame { border-color: #ffffff; }
 
-.mat-grid-tile .mat-figure {
-    justify-content: flex-end !important;
-}
+/* Bob's Pizza */
+.mat-grid-tile .mat-figure { justify-content: flex-end !important; }
+
+/* Days Between Dates */
+.mat-input-element { caret-color:white; }
+.mat-datepicker-toggle-default-icon, 
+.mat-form-field-appearance-legacy 
+.mat-form-field-label, 
+.mat-form-field.mat-focused 
+.mat-form-field-label { color: white; }
+.mat-form-field-appearance-legacy 
+.mat-form-field-underline, 
+.mat-form-field.mat-focused 
+.mat-form-field-ripple { background-color: white; }
