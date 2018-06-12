@@ -52,7 +52,7 @@ export class BobsPizzaComponent {
         let val = $event.value;
         let price = val.price;
 
-        if(val.size) this.sizePrice = price;
+        if (val.size) this.sizePrice = price;
         else/*(val.type)*/ this.crustPrice = price;
 
         this.setTotal(this.sizePrice, this.crustPrice, this.toppingTotal);
@@ -69,21 +69,21 @@ export class BobsPizzaComponent {
         let toppingPrice: number = val.price;
         let tList: string[] = this.toppingList;
         
-        if($event.checked) {
+        if ($event.checked) {
             this.toppingTotal += toppingPrice;
             tList.push(topping);
         }
         else {
             this.toppingTotal -= toppingPrice;
             tList.forEach(element => {
-                if(element.includes(topping)) {
+                if (element.includes(topping)) {
                     let tIndex = tList.indexOf(element);
                     tList.splice(tIndex,1);
                 }
             });
         }
         
-        if(tList.length > 2) this.checkSpecial(tList);
+        if (tList.length > 2) this.checkSpecial(tList);
         else this.special = 0;
 
         this.setTotal(this.sizePrice, this.crustPrice, this.toppingTotal);
@@ -95,14 +95,14 @@ export class BobsPizzaComponent {
         let tLength: number = tList.length;
         let tListLast: number = tLength - 1;
 
-       if(tLength === 1) t[0] = (' ' + tList[0] + '!');
+       if (tLength === 1) t[0] = (' ' + tList[0] + '!');
 
-       if(tLength === 2){
+       if (tLength === 2){
            t[0] = (' ' + tList[0] + ',');
            t[1] = (' and ' + tList[1] + '!');
        };
 
-       if(tLength > 2) {
+       if (tLength > 2) {
            for(let i = 0; i < tListLast; i++) {
                t[i] = (' ' + tList[i] + ',');
            }
@@ -114,7 +114,7 @@ export class BobsPizzaComponent {
     }
 
     checkSpecial(t: string[]) {
-        if((t.some(x => x === "pepperoni")
+        if ((t.some(x => x === "pepperoni")
         && t.some(x => x === "green peppers")
         && t.some(x => x === "anchovies"))
         || (t.some(x => x === "pepperoni")
