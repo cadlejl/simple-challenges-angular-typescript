@@ -1,0 +1,27 @@
+.header {
+    margin-bottom: 50px;
+}
+img { 
+    width: 150px; 
+}
+.row { 
+    margin: 10px 0; 
+}
+.menuRow { 
+    margin: 30px 0; 
+}
+.check-radio_Group {
+    display: inline-flex;
+    flex-direction: column;
+}
+.check-radio { 
+    margin: 4px; 
+}
+.orderTotal { 
+    font-size: 1.5rem; 
+}
+.special { 
+    color: #dc3545; 
+}
+/* mat-grid-tile { border: 2px solid white; }*/
+p { margin: 10px 0; }
