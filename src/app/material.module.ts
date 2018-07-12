@@ -14,6 +14,10 @@ import { /*MatNativeDateModule,*/ MatInputModule } from "@angular/material";
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 /* import { BrowserAnimationsModule } Imported in app.module */
 
+// Component Counter
+import { MatSliderModule } from '@angular/material/slider';
+import { MatCardModule } from "@angular/material";
+
 @NgModule({
     imports: [ 
         MatRadioModule,
@@ -23,7 +27,9 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
         MatFormFieldModule,
         //MatNativeDateModule,
         MatInputModule,
-        MatMomentDateModule
+        MatMomentDateModule,
+        MatSliderModule,
+        MatCardModule
     ],
     exports: [ 
         MatRadioModule,
@@ -33,7 +39,9 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
         MatFormFieldModule,
         //MatNativeDateModule,
         MatInputModule,
-        MatMomentDateModule
+        MatMomentDateModule,
+        MatSliderModule,
+        MatCardModule
     ],
     declarations: [],
     providers: [],

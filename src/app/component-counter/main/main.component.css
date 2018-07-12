@@ -1,0 +1,22 @@
+.center {
+    text-align: center;
+  }
+  .app {
+    min-height: 600px;
+  }
+  h2 {
+    margin-bottom: 60px;
+  }
+
+  .seconds {
+    background-color: #FF4081;
+    padding: 0 7px;
+  }
+
+  h5.vertical {
+    margin-top: 22px;
+  }
+
+  h2.vertical {
+    margin-top: 15px;
+  }

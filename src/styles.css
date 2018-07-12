@@ -28,3 +28,11 @@ hr { background-color:white; }
 .mat-form-field-underline, 
 .mat-form-field.mat-focused 
 .mat-form-field-ripple { background-color: white; }
+
+
+/*Component Counter*/
+.mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb, 
+.mat-slider-min-value.mat-slider-thumb-label-showing 
+.mat-slider-thumb-label {
+  background-color: white;
+}

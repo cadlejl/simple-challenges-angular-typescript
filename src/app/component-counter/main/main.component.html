@@ -1,0 +1,56 @@
+<div class="container-fluid app">
+  <h2 class="center">Adding Components to the Document Object Model</h2>
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <app-controls 
+        (increment)="countMeathod($event)"
+        (seconds)="seconds = $event">
+      </app-controls>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-1">
+        <h2 class="vertical">Count: {{ count }}</h2>
+    </div>
+    <div class="col-md-5">
+        <h5 class="vertical center">
+          A new component will be instantiated every 
+          <span class="seconds">{{ seconds }}</span>
+          &nbsp;seconds
+        </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 offset-md-1 center">
+      <h3>{{ oddCreated }} odd components created</h3>
+    </div>
+    <div class="col-md-5 center">
+      <h3>{{ evenCreated }} even components created</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 offset-md-1">
+      <div class="row">
+        <app-odd 
+          class="col-md-4 "
+          *ngFor="let count of oddArray" 
+          [odd]="count"
+          [oddNumber]="oddCreated"
+          (oddCreated)="oddCreatedMethod($event)">
+        </app-odd>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="row">
+        <app-even 
+          class="col-md-4"
+          *ngFor="let count of evenArray" 
+          [even]="count"
+          [evenNumber]="evenCreated"
+          (evenCreated)="evenCreatedMethod($event)">
+        </app-even>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>

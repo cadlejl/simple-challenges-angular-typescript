@@ -1,0 +1,22 @@
+<div class="row">
+  <mat-card class="result">
+    <mat-card-content>
+      <h4 class="example-h2 center">Component Creation Interval (miliseconds)</h4>
+      <span class="">Slower</span>
+      <mat-slider
+          class="example-margin"
+          [disabled]="disabled"
+          [invert]="invert"
+          [max]="max"
+          [min]="min"
+          [step]="step"
+          [thumbLabel]="thumbLabel"
+          [tickInterval]="tickInterval"
+          [(ngModel)]="value"
+          [vertical]="vertical"
+          (change)="valueChange()">
+    </mat-slider>
+    <span class="inline">Faster</span>
+    </mat-card-content>
+  </mat-card>
+</div>
