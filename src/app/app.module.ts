@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ComponentCounterModule } from "./component-counter/component-counter.module";
 
 // Imports for Angular Material
 import { MaterialModule } from './material.module';
@@ -26,7 +27,8 @@ import { DaysBtwDatesComponent } from "./days-btw-dates/days-btw-dates.component
     BrowserModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ComponentCounterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'fortune',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: [ 'fortune.component.css' ]
 })
 
-export class FortuneComponent /*implements OnInit*/ {
+export class FortuneComponent {
 
     private age: number = null;
     private money: number = null;
@@ -39,5 +39,4 @@ export class FortuneComponent /*implements OnInit*/ {
             this.num = false;
         }
     }
-/*constructor(){} ngOnInit(){}*/
 }
