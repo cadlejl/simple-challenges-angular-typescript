@@ -29,10 +29,6 @@ export class ControlsComponent implements OnInit {
     }, this.speed);
   }
 
-  // destroy() {
-  //   this.decrement
-  // }
-
   speedChange(event: any) {
     this.pause();
     this.speed = event;
