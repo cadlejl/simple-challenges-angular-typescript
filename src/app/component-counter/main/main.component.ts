@@ -9,9 +9,7 @@ import { FileDetector } from '../../../../node_modules/@types/selenium-webdriver
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-  count: any;
-  odd: boolean;
-  even: boolean;
+  count: any = null;
   oddArray: number[] = [];
   evenArray: number[] = [];
   evenCreated = 0;
@@ -19,36 +17,40 @@ export class MainComponent {
   seconds: number;
 
   countMeathod(count: any) {
+    if (
+      count > this.count 
+      || this.count === null
+    ) this.createMethod(count);
+    else this.destroyMethod(count);
+  }
+
+  createMethod(count: any) {
     this.count = count;
-    if(this.count%2 !== 0 && this.count != null) {
-      this.odd = true;
-      this.even = false;
+    if(this.count % 2 !== 0 /*&& this.count != null*/) {
       this.oddArray.push(this.count);
     } 
-    else if (this.count%2 === 0 && count !== 0) {
-      this.odd = false;
-      this.even = true;
+    else /*(this.count%2 === 0 && count !== 0)*/ {
       this.evenArray.push(this.count);
+    }
+  }
+
+  destroyMethod(count: any) {
+    // if (count !== 0) {}
+    this.count = count;
+    if(this.count % 2 === 0 /*&& count !== 0*/) {
+      this.oddArray.pop();
     } 
+    else if (this.count%2 !== 0 /*&& count !== 0*/) {
+      this.evenArray.pop();
+    }
     else {
+      this.count = null;
       this.oddArray = [];
       this.evenArray = [];
       this.evenCreated = 0;
       this.oddCreated = 0;
     }
   }
-
-
-  // b(Key: any) {
-  // //  let field = document.createEvent();
-  // //   element(field).sendKeys('text', Key.cho, 'a', Key.NULL, 'NOW TEXT IS')
-  // //   return field.sendKeys()
-
-
-  //   Actions action = new Action();
-  // }
-
-
 
   evenCreatedMethod(number: any) {
     this.evenCreated = ++number;
