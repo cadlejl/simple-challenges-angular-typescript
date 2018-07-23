@@ -4,24 +4,24 @@
     <button 
       class="btn btn-primary" 
       (click)="create()" 
-      [disabled]="disableCreate">
+      [disabled]="createBtn">
       Create
     </button>
     <button 
       class="btn btn-primary" 
       (click)="destroy()"
-      [disabled]="!someCreated || (someCreated && !canDestroy)">
+      [disabled]="destroyBtn">
       Destroy
     </button>
     <button 
       class="btn btn-secondary" 
-      (click)="pause()"
-      [disabled]="!disableCreate">
+      (click)="pause(1)"
+      [disabled]="pauseBtn">
       Pause
-    </button><!--; someCreated = false-->
+    </button>
     <button 
       class="btn btn-danger" 
-      (click)="reset()">
+      (click)="reset(true)">
       Reset
     </button>
   </div>

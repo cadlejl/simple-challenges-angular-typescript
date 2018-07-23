@@ -3,7 +3,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-odd',
   templateUrl: './odd.component.html',
-  styleUrls: ['./odd.component.css']
+  styles: [`
+    h5 {
+      color: blue;
+      display: inline;
+      font-size: 1.2rem;
+    }
+  `]
 })
 export class OddComponent implements OnInit {
   @Input() odd: any;

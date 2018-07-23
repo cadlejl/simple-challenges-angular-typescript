@@ -3,7 +3,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-even',
   templateUrl: './even.component.html',
-  styleUrls: ['./even.component.css']
+  styles: [`
+    h5 {
+      color: rgb(5, 185, 5);
+      display: inline;
+      font-size: 1.2rem;
+    }
+  `]
 })
 export class EvenComponent implements OnInit {
   @Input() even: any;
