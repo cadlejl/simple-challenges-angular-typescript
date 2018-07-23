@@ -1,9 +1,10 @@
 <div class="container-fluid app">
   <h2 class="center">Adding Components to the Document Object Model</h2>
+  <p class="center subheading">Veiw generated numbers in the DOM Inspector to see components being created or destroyed.</p>
   <div class="row">
     <div class="col-md-10 offset-md-1">
       <app-controls 
-        (increment)="countMeathod($event)"
+        (interval)="countMeathod($event)"
         (seconds)="seconds = $event">
       </app-controls>
     </div>
@@ -14,7 +15,7 @@
     </div>
     <div class="col-md-5">
         <h5 class="vertical center">
-          A new component will be created every 
+          A {{ intString }} 
           <span class="seconds">{{ seconds | number:'1.1-1' }}</span>
           &nbsp;seconds
         </h5>
@@ -22,10 +23,18 @@
   </div>
   <div class="row">
     <div class="col-md-5 offset-md-1 center">
-      <h3>{{ oddCreated }} odd components created</h3>
+      <h4>{{ oddCreated }} odd components created</h4>
     </div>
     <div class="col-md-5 center">
-      <h3>{{ evenCreated }} even components created</h3>
+      <h4>{{ evenCreated }} even components created</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 offset-md-1 center">
+      <h4>{{ oddDestroyed }} odd components destroyed</h4>
+    </div>
+    <div class="col-md-5 center">
+      <h4>{{ evenDestroyed }} even components destroyed</h4>
     </div>
   </div>
   <div class="row">

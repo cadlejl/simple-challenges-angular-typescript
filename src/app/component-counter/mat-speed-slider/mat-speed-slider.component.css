@@ -5,27 +5,22 @@ mat-card {
 }
 .example-h2 {
     margin: 10px;
-  }
-  
-  .example-section {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    height: 60px;
-  }
-  
-  .example-margin {
-    margin: 10px;
-  }
-  
-  .mat-slider-horizontal {
-    width: 550px;
-  }
-  
-  .mat-slider-vertical {
-    height: 300px;
-  }
-  
-  .center {
-      text-align: center;
-  }
+}
+/* .example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+} */
+/* .example-margin {
+  margin: 10px;
+} */
+.mat-slider-horizontal {
+  width: 550px;
+}
+.mat-slider-vertical {
+  height: 300px;
+}
+.center {
+    text-align: center;
+}

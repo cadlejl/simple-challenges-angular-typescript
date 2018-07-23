@@ -26,9 +26,11 @@ export class MatSpeedSliderComponent implements OnInit{
   get tickInterval(): number | 'auto' {
     return this.showTicks ? (this.autoTicks ? 'auto' : this._tickInterval) : 0;
   }
+
   set tickInterval(value) {
     this._tickInterval = coerceNumberProperty(value);
   }
+
   private _tickInterval = 100;
 
   valueChange() {

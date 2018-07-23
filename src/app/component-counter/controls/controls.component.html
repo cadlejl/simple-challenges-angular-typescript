@@ -1,21 +1,27 @@
 <div class="row">
   <div class="col-md-5">
-    <h4>Component Creation</h4>
+    <h4>Component Controls</h4>
     <button 
       class="btn btn-primary" 
-      (click)="start()" 
-      [disabled]="disable">
-      Start
+      (click)="create()" 
+      [disabled]="createBtn">
+      Create
+    </button>
+    <button 
+      class="btn btn-primary" 
+      (click)="destroy()"
+      [disabled]="destroyBtn">
+      Destroy
     </button>
     <button 
       class="btn btn-secondary" 
-      (click)="pause(); started = false"
-      [disabled]="!disable">
+      (click)="pause(1)"
+      [disabled]="pauseBtn">
       Pause
     </button>
     <button 
       class="btn btn-danger" 
-      (click)="reset()">
+      (click)="reset(true)">
       Reset
     </button>
   </div>
@@ -23,6 +29,6 @@
     <mat-speed-slider
       class="center"
       (outputValue)="speedChange($event)">
-  </mat-speed-slider>
+    </mat-speed-slider>
   </div>
 </div>
