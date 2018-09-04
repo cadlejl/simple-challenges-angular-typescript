@@ -87,11 +87,11 @@ export class BobsPizzaComponent {
 
     checkSpecial(t: string[]) {
         if ((t.some(x => x === "pepperoni")
-        && t.some(x => x === "green peppers")
-        && t.some(x => x === "anchovies"))
-        || (t.some(x => x === "pepperoni")
-        && t.some(x => x === "red peppers")
-        && t.some(x => x === "onions"))) {
+          && t.some(x => x === "green peppers")
+          && t.some(x => x === "anchovies"))
+          || (t.some(x => x === "pepperoni")
+          && t.some(x => x === "red peppers")
+          && t.some(x => x === "onions"))) {
             this.special = 2;
         } else this.special = 0;
     }
